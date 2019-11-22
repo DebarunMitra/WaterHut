@@ -1,0 +1,23 @@
+{
+  "name": "waterhut",
+  "version": "1.0.0",
+  "description": "waterhut app , smart water solution",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DebarunMitra/WaterHut.git"
+  },
+  "author": "Debarun Mitra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DebarunMitra/WaterHut/issues"
+  },
+  "homepage": "https://github.com/DebarunMitra/WaterHut#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.7.12"
+  }
+}
