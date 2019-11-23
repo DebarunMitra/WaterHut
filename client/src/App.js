@@ -1,4 +1,6 @@
-import React, {Component} from 'react';
+import React, {
+  Component
+} from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "jquery/dist/jquery.min.js";
@@ -8,14 +10,16 @@ import Login from './components/LoginInterface/Login';
 
 //    <NavBar />
 
-class App extends Component{
+class App extends Component {
 
-  render(){
-    return (
-      <div className="App">
-        <Login />
-        <h6>WaterHut</h6>
-      </div>
+  render() {
+    return ( <
+      div className = "App" >
+      <
+      Login / >
+      <
+      h6 > WaterHut < /h6> <
+      /div>
     );
   }
 }

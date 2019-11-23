@@ -1,22 +1,24 @@
-:root{
-  --titleColor:  #3765B6;
-  --quoteColor:  #0094FF;
-  --textColor:  #ffffff;
-  --fontFamily:'Roboto', sans-serif;
+:root {
+  --titleColor: #3765B6;
+  --quoteColor: #0094FF;
+  --textColor: #ffffff;
+  --fontFamily: 'Roboto', sans-serif;
 }
 
-.title{
-  color:var(--titleColor);
+.title {
+  color: var(--titleColor);
   font-family: var(--fontFamily);
 }
-.quote{
-  color:var(--quoteColor);
+
+.quote {
+  color: var(--quoteColor);
   font-family: var(--fontFamily);
 }
-.button-color{
+
+.button-color {
   border: none;
-  border-color:var(--titleColor);
+  border-color: var(--titleColor);
   background-color: var(--titleColor);
-  color:var(--textColor);
+  color: var(--textColor);
   font-family: var(--fontFamily);
 }
