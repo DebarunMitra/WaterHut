@@ -15,10 +15,11 @@
   font-family: var(--fontFamily);
 }
 
-.button-color {
+.button{
   border: none;
   border-color: var(--titleColor);
   background-color: var(--titleColor);
   color: var(--textColor);
   font-family: var(--fontFamily);
+  width:220px;
 }
