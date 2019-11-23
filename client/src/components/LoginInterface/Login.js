@@ -20,8 +20,8 @@ class Login extends Component {
       <
       h1 className = "h1 mb-3 font-weight-normal title" > WaterHut < /h1> <
       h1 className = "h5 mb-3 font-weight-normal quote" > Smart Water Solution < /h1> <
-      button className = "col-2 mt-4 button-color"
-      type = "submit" > Sign in with Google < /button> <
+      button className = "col-12 mt-4 button"
+      type = "button" > Sign in with Google < /button> <
       p className = "mt-5 mb-3 text-muted" > WaterHut & copy; 2019 - 2020 < /p> <
       /form>
     );
