@@ -2,7 +2,7 @@ import React, {
   Component
 } from 'react';
 //import Logo from '../../logo.svg';
-import Logo from './waterHut.png';
+import Logo from '../../waterHut.png';
 
 class Navbar extends Component {
   constructor(props) {
