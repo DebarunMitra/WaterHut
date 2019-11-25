@@ -27,3 +27,9 @@ const db=require('./config/keys').mongoURI;
 //db connection
 mongoose.connect(db, {useNewUrlParser: true,useUnifiedTopology: true,useCreateIndex:true})
 .then(()=>console.log('MongoDB connected...')).catch(err=>console.log('ERROR: '+err));
+
+app.use(session({
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: false
+}));
