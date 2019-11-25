@@ -41,3 +41,8 @@ app.use(passport.session());
 
 // Use Routes
 app.use('/auth', auth);
+
+//set port
+const port=process.env.PORT || 5020;
+//server up
+app.listen(port,()=>console.log(`Server Start At ${port} Port...`));
