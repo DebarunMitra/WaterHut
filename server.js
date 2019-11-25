@@ -33,3 +33,11 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
+
+// Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+// Use Routes
+app.use('/auth', auth);
