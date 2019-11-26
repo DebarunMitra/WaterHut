@@ -21,5 +21,10 @@
   background-color: var(--titleColor);
   color: var(--textColor);
   font-family: var(--fontFamily);
-  width:220px;
+  font-size: 20px;
+   text-decoration: none !important;
+}
+
+#gLogin a:hover{
+  color: var(--textColor);
 }
