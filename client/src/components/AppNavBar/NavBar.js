@@ -1,7 +1,5 @@
-import React, {
-  Component
-} from 'react';
-//import Logo from '../../logo.svg';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import Logo from '../../waterHut.png';
 
 class Navbar extends Component {
@@ -9,7 +7,9 @@ class Navbar extends Component {
     super(props);
     this.toggleNavbar = this.toggleNavbar.bind(this);
     this.state = {
-      collapsed: true,
+      collapsed: true,//for novbar
+      firstName:"loading",
+      image:""
     };
   }
   toggleNavbar() {
@@ -18,7 +18,23 @@ class Navbar extends Component {
     });
   }
 
+  componentDidMount() {
+    if(this.props.user){
+            this.setState({
+                firstName:this.props.user.firstName,
+                image:this.props.user.image
+       })
+     }
+   }
+
   render() {
+    if(!this.props.user){
+    // this.props.history.push('/');
+      console.log(this.props);
+    }
+    else{
+      console.log(this.props);
+    }
     const collapsed = this.state.collapsed;
     const classOne = collapsed ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
     const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
@@ -58,7 +74,7 @@ class Navbar extends Component {
       <a className = "nav-link m-1" href = "#" > Link 1 </a>
       </li >
       <li className = "nav-item active" >
-      <a className = "nav-link m-1" href = "#" > Logout </a>
+      <a className = "nav-link m-1" href = "/auth/logout" > Logout </a>
       </li >
       </ul>
       </div>
@@ -67,4 +83,11 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+const mapStateToProps = (state)=>{
+  console.log(state);
+   return {
+       user:state.auth
+   }
+}
+
+export default connect(mapStateToProps)(Navbar);
