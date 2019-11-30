@@ -26,14 +26,12 @@ export const getCurrentConsumer=()=>async dispatch=>{
 
 //create or update consuming item
 export const createConsumer=(formData, history, edit=false)=>async dispatch=>{
-  console.log(formData);
   try{
     const config={
       headers:{
         'Content-Type':'application/json'
       }
     }
-
     const res=await axios.post('http://localhost:5020/api/consumers',formData,config);
     dispatch({
       type: GET_CONSUMER,
