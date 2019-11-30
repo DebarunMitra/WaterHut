@@ -75,22 +75,21 @@ export const login =(email,password)=>async dispatch=>{
       }
 
         const body = JSON.stringify({email, password});
-        console.log(body);
         const res=await axios.post('http://localhost:5020/api/auth',body,config);
         dispatch({
           type:LOGIN_SUCCESS,
           payload:res.data
         });
-            dispatch(loadUser());
+        dispatch(loadUser());
     }catch(err){
       //show error
-      // const errors=await err.response.data.errors;
-      // if(errors){
-      //     errors.forEach(error=> dispatch(setAlert(error.msg,'danger')));
-      // }
+      const errors=await err.response.data.errors;
+      if(errors){
+          errors.forEach(error=> dispatch(setAlert(error.msg,'danger')));
+      }
         dispatch({
           type:LOGIN_FAIL
-        })
+        });
     }
 }
 
