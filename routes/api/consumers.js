@@ -19,7 +19,9 @@ router.get('/consumeData', auth, async (req, res) => {
     try {
         const consumer = await Consumer.findOne({
             user: req.user.id
-        }).populate('user','person', 'tap', 'shower','flush','washingMachine','dishWasher','filter');
+        }).select("-_id -date -__v");
+
+        console.log(consumer);
 
         if (!consumer) {
             return res.status(400).json({
@@ -30,7 +32,7 @@ router.get('/consumeData', auth, async (req, res) => {
 
     } catch (err) {
         console.erroe(err.message);
-        res.status(500).send('Server Error');
+        res.status(500).send({msg:'Server Error'});
     }
 
 });
