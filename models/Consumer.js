@@ -29,7 +29,7 @@ const ConsumerSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  fridge: {
+  filter: {
     type: Number,
     required: true
   },
