@@ -6,7 +6,7 @@ import {createConsumer} from '../../actions/consumer';
 
 const CreateConsumer =({CreateConsumer, history})=>{
   const [formData, setFormData]=useState({
-    person:'',
+      person:'',
       tap:'',
       shower:'',
       flush:'',
@@ -14,8 +14,6 @@ const CreateConsumer =({CreateConsumer, history})=>{
       dishWasher:'',
       filter:''
   });
-
-  const [displaySocialInputs, toggleSocialInputs]=useState(false);
 
   const {
     person,
@@ -73,7 +71,7 @@ const CreateConsumer =({CreateConsumer, history})=>{
         <small className="form-text">Total number of water filter in your house</small>
       </div>
       <input type="submit" className="btn btn-primary my-1" />
-      <a className="btn btn-light my-1" href="dashboard.html">Go Back</a>
+      <Link className="btn btn-light my-1" to="/dashboard">Go Back</Link>
     </form>
     </Fragment>
   );
