@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {createConsumer} from '../../actions/consumer';
 
-const CreateConsumer =({CreateConsumer, history})=>{
+const CreateConsumer =({createConsumer, history})=>{
   const [formData, setFormData]=useState({
       person:'',
       tap:'',
@@ -30,6 +30,7 @@ const CreateConsumer =({CreateConsumer, history})=>{
 
     const onSubmit=e=>{
       e.preventDefault();
+      console.log(formData);
       createConsumer(formData, history);
     }
   return (
