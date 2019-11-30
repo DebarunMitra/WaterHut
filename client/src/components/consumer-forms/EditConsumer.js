@@ -7,10 +7,9 @@ import {createConsumer, getCurrentConsumer} from '../../actions/consumer';
 const EditConsumer =({
   consumer:{consumer,loading},
   createConsumer,
-  getCurrentConsumer,
-   history})=>{
+  getCurrentConsumer,history})=>{
   const [formData, setFormData]=useState({
-    person:'',
+      person:'',
       tap:'',
       shower:'',
       flush:'',
@@ -18,8 +17,6 @@ const EditConsumer =({
       dishWasher:'',
       filter:''
   });
-
-  const [displaySocialInputs, toggleSocialInputs]=useState(false);
 
   useEffect(()=>{
     getCurrentConsumer();
@@ -30,8 +27,7 @@ const EditConsumer =({
     flush: loading || !consumer.flush ? '' : consumer.flush,
     washingMachine: loading || !consumer.washingMachine ? '' : consumer.washingMachine,
     dishWasher: loading || !consumer.dishWasher ? '' : consumer.dishWasher,
-    filter: loading || !consumer.filter ? '' : consumer.filter,
-
+    filter: loading || !consumer.filter ? '' : consumer.filter
   });
 }, [loading, getCurrentConsumer]);
 
@@ -64,112 +60,49 @@ const EditConsumer =({
     </p>
     <small>* = required field</small>
     <form className="form" onSubmit={e=>onSubmit(e)}>
-      <div className="form-group">
-        <select name="status" value={status} onChange={e=>onChange(e)}>
-          <option value="0">* Select Professional Status</option>
-          <option value="Developer">Developer</option>
-          <option value="Junior Developer">Junior Developer</option>
-          <option value="Senior Developer">Senior Developer</option>
-          <option value="Manager">Manager</option>
-          <option value="Student or Learning">Student or Learning</option>
-          <option value="Instructor">Instructor or Teacher</option>
-          <option value="Intern">Intern</option>
-          <option value="Other">Other</option>
-        </select>
-        <small className="form-text"
-          >Give us an idea of where you are at in your career</small
-        >
-      </div>
-      <div className="form-group">
-        <input type="text" placeholder="Company" name="company" value={company} onChange={e=>onChange(e)}/>
-        <small className="form-text"> Could be your own company or one you work for</small>
-      </div>
-      <div className="form-group">
-        <input type="text" placeholder="Website" name="website" value={website} onChange={e=>onChange(e)}/>
-        <small className="form-text"
-          >Could be your own or a company website</small
-        >
-      </div>
-      <div className="form-group">
-        <input type="text" placeholder="Location" name="location" value={location} onChange={e=>onChange(e)} />
-        <small className="form-text"
-          >City & state suggested (eg. Boston, MA)</small
-        >
-      </div>
-      <div className="form-group">
-        <input type="text" placeholder="* Skills" name="skills" value={skills} onChange={e=>onChange(e)} />
-        <small className="form-text"
-          >Please use comma separated values (eg.
-          HTML,CSS,JavaScript,PHP)</small
-        >
-      </div>
-      <div className="form-group">
-        <input
-          type="text"
-          placeholder="Github Username"
-          name="githubusername"
-          value={githubusername} onChange={e=>onChange(e)}
-        />
-        <small className="form-text"
-          >If you want your latest repos and a Github link, include your
-          username</small
-        >
-      </div>
-      <div className="form-group">
-        <textarea placeholder="A short bio of yourself" name="bio" value={bio} onChange={e=>onChange(e)}></textarea>
-        <small className="form-text">Tell us a little about yourself</small>
-      </div>
-
-      <div className="my-2">
-        <button onClick={()=>toggleSocialInputs(!displaySocialInputs)} type="button" className="btn btn-light">
-          Add Social Network Links
-        </button>
-        <span>Optional</span>
-      </div>
-
-      {displaySocialInputs && <Fragment>
-        <div className="form-group social-input">
-          <i className="fab fa-twitter fa-2x"></i>
-          <input type="text" placeholder="Twitter URL" name="twitter" value={twitter} onChange={e=>onChange(e)} />
-        </div>
-
-        <div className="form-group social-input">
-          <i className="fab fa-facebook fa-2x"></i>
-          <input type="text" placeholder="Facebook URL" name="facebook" value={facebook} onChange={e=>onChange(e)} />
-        </div>
-
-        <div className="form-group social-input">
-          <i className="fab fa-youtube fa-2x"></i>
-          <input type="text" placeholder="YouTube URL" name="youtube" value={youtube} onChange={e=>onChange(e)} />
-        </div>
-
-        <div className="form-group social-input">
-          <i className="fab fa-linkedin fa-2x"></i>
-          <input type="text" placeholder="Linkedin URL" name="linkedin" value={linkedin} onChange={e=>onChange(e)} />
-        </div>
-
-        <div className="form-group social-input">
-          <i className="fab fa-instagram fa-2x"></i>
-          <input type="text" placeholder="Instagram URL" name="instagram" value={instagram} onChange={e=>onChange(e)} />
-        </div>
-
-        </Fragment>}
-
+    <div className="form-group">
+      <input type="number" placeholder="Person" name="person" value={person} onChange={e=>onChange(e)}/>
+      <small className="form-text"> Total number of persons in your family or house</small>
+    </div>
+    <div className="form-group">
+      <input type="number" placeholder="Tap" name="tap" value={tap} onChange={e=>onChange(e)}/>
+      <small className="form-text">Total number of tap's in your house</small>
+    </div>
+    <div className="form-group">
+      <input type="number" placeholder="Shower" name="shower" value={shower} onChange={e=>onChange(e)} />
+      <small className="form-text">Total number of shower in your house</small>
+    </div>
+    <div className="form-group">
+      <input type="number" placeholder="Flush" name="flush" value={flush} onChange={e=>onChange(e)} />
+      <small className="form-text">Total number of flush in your house</small>
+    </div>
+    <div className="form-group">
+      <input type="number" placeholder="Washing Machine" name="washingMachine" value={washingMachine} onChange={e=>onChange(e)} />
+      <small className="form-text">Total number of washing machine in your house</small>
+    </div>
+    <div className="form-group">
+      <input type="number" placeholder="Dish Washer" name="dishWasher" value={dishWasher} onChange={e=>onChange(e)} />
+      <small className="form-text">Total number of dish washer in your house</small>
+    </div>
+    <div className="form-group">
+      <input type="number" placeholder="Water Filter" name="filter" value={filter} onChange={e=>onChange(e)} />
+      <small className="form-text">Total number of water filter in your house</small>
+    </div>
       <input type="submit" className="btn btn-primary my-1" />
-      <a className="btn btn-light my-1" href="dashboard.html">Go Back</a>
+      <Link className="btn btn-light my-1" to="/dashboard">Go Back</Link>
     </form>
     </Fragment>
   );
 }
 
-EditProfile.propTypes={
-  createProfile: PropTypes.func.isRequired,
-  getCurrentProfile: PropTypes.func.isRequired,
-  profile: PropTypes.object.isRequired
+EditConsumer.propTypes={
+  createConsumer: PropTypes.func.isRequired,
+  getCurrentConsumer: PropTypes.func.isRequired,
+  consumer: PropTypes.object.isRequired
 }
 
 const mapStateToProps=state=>({
-  profile:state.profile
+  consumer:state.consumer
 })
 
-export default connect(mapStateToProps,{createProfile, getCurrentProfile})(withRouter(EditProfile));
+export default connect(mapStateToProps,{createConsumer, getCurrentConsumer})(withRouter(EditConsumer));
