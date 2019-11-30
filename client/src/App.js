@@ -6,8 +6,8 @@ import Landing from './components/layout/Landing';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
-import CreateConsumer from './components/profile-forms/CreateConsumer';
-import EditConsumer from './components/profile-forms/EditConsumer';
+import CreateConsumer from './components/consumer-forms/CreateConsumer';
+import EditConsumer from './components/consumer-forms/EditConsumer';
 import Dashboard from './components/dashboard/Dashboard';
 import PrivateRoute from './components/routing/PrivateRoute';
 
