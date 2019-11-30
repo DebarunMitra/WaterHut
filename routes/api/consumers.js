@@ -26,7 +26,7 @@ router.get('/consumeData', auth, async (req, res) => {
                 msg: 'There is no consuming items'
             });
         }
-        res.json(consumer);
+        res.status(200).json(consumer);
 
     } catch (err) {
         console.erroe(err.message);
@@ -60,7 +60,7 @@ router.post('/', [auth, [
       filter
     } = req.body;
 
-    //Build Profile Object
+    //Build consumers Object
     const consumerFields = {};
     consumerFields.user = req.user.id;
     if (person) consumerFields.person = person;
@@ -85,13 +85,13 @@ router.post('/', [auth, [
             }, {
                 new: true
             });
-            return res.json(consumer);
+            return res.status(200).json(consumer);
         }
 
         //Creting a Consuming item
         consumer = new Consumer(consumerFields);
         await consumer.save();
-        res.json(consumer);
+        res.status(200).json(consumer);
 
     } catch (err) {
         console.error(err.message);
