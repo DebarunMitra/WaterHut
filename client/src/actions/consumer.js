@@ -18,13 +18,13 @@ export const getCurrentConsumer=()=>async dispatch=>{
   }catch(err){
     dispatch({
       type:CONSUMER_ERROR,
-      payload:{ msg:err.response.ststusText, status: err.response.status }
+      payload:{ msg:err.response.statusText, status: err.response.status }
     });
   }
 }
 
 
-//create or update profile
+//create or update consuming item
 export const createConsumer=(formData, history, edit=false)=>async dispatch=>{
   console.log(formData);
   try{
@@ -57,7 +57,7 @@ export const createConsumer=(formData, history, edit=false)=>async dispatch=>{
 
     dispatch({
       type:CONSUMER_ERROR,
-      payload:{ msg:err.response.ststusText, status: err.response.status }
+      payload:{ msg:err.response.statusText, status: err.response.status }
     });
   }
 }
