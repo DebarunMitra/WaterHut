@@ -11,7 +11,7 @@ const Dashboard = ({getCurrentConsumer, auth:{user}, consumer:{consumer,loading}
   useEffect(()=>{
     getCurrentConsumer()
   },[])
-  return loading && profile === null ? <Spinner /> : <Fragment>
+  return loading && consumer === null ? <Spinner /> : <Fragment>
     <h1 className="large text-primary"></h1>
     <p className="lead">
     <i className="fas fa-user"></i>{' '}Welcome {user && user.name}
@@ -34,7 +34,7 @@ const Dashboard = ({getCurrentConsumer, auth:{user}, consumer:{consumer,loading}
 Dashboard.propTypes={
   getCurrentConsumer : PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  profile: PropTypes.object.isRequired
+  consumer: PropTypes.object.isRequired
 };
 
 const mapStateToProps=state=>({
