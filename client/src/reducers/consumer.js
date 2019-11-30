@@ -1,7 +1,7 @@
 import {
-  GET_PROFILE,
-  PROFILE_ERROR,
-  CLEAR_PROFILE
+  GET_CONSUMER,
+  CONSUMER_ERROR,
+  CLEAR_CONSUMER
 } from '../actions/types';
 
 const initialState={
@@ -32,7 +32,7 @@ export default function(state=initialState, action){
     case CLEAR_CONSUMER:
       return {
         ...state,
-        profile:null,
+        consumer:null,
         repos:[],
         loading:false
       }
