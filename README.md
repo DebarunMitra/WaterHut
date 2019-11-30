@@ -8,11 +8,11 @@ WaterHut
 Debarun Mitra
 
 #### Tehnology Used:
- -- MongoDB
- -- Experss JS
- -- React JS
- -- Redux
- -- Node JS
- -- Passport JS
- -- HTML
- -- CSS
+ - MongoDB
+ - Experss JS
+ - React JS
+ - Redux
+ - Node JS
+ - Passport JS
+ - HTML
+ - CSS
