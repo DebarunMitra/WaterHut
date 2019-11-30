@@ -57,7 +57,7 @@ router.post('/', [auth, [
       flush,
       washingMachine,
       dishWasher,
-      fridge
+      filter
     } = req.body;
 
     //Build Profile Object
@@ -69,7 +69,7 @@ router.post('/', [auth, [
     if (flush) consumerFields.flush = flush;
     if (washingMachine) consumerFields.washingMachine = washingMachine;
     if (dishWasher) consumerFields.dishWasher = dishWasher;
-    if (fridge) consumerFields.fridge = fridge;
+    if (filter) consumerFields.filter = filter;
 
      try {
          let consumer = await Consumer.findOne({
