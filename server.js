@@ -1,48 +1,37 @@
-const express=require('express');
-const mongoose=require('mongoose');
-//const config=require('./config');
-const session = require('express-session');
-const passport = require('passport');
+const express = require("express");
+const connectDB = require("./config/db");
+const app = express();
 
-// Load User Model
-require('./models/User');
-
-
-// Passport Config
-require('./config/passport')(passport);
-
-// Load Routes
-const auth = require('./routes/auth');
-
-const app=express();
+app.use(express.urlencoded({extended:true}));
 
 //body parser middleware
 app.use(express.json());
 
+//DB Connection
+connectDB();
+app.get("/", (req, res) => res.send("Working"));
 
-//db path
-const db=require('./config/keys').mongoURI;
-//const db=config.get('mongoURI');
+//Middlewares
+app.use(express.json({ extended: false }));
 
-//db connection
-mongoose.connect(db, {useNewUrlParser: true,useUnifiedTopology: true,useCreateIndex:true})
-.then(()=>console.log('MongoDB connected...')).catch(err=>console.log('ERROR: '+err));
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, x-auth-token"
+  );
+  next();
+});
 
-app.use(session({
-  secret: 'secret',
-  resave: false,
-  saveUninitialized: false
-}));
-
-// Passport Middleware
-app.use(passport.initialize());
-app.use(passport.session());
+//Routes
+app.use("/api/users", require("./routes/api/users"));
+app.use("/api/auth", require("./routes/api/auth"));
+app.use("/api/profile", require("./routes/api/profile"));
+app.use("/api/consumers", require("./routes/api/consumers"));
+app.use("/api/conserve", require("./routes/api/conserve"));
 
 
-// Use Routes
-app.use('/auth', auth);
 
-//set port
-const port=process.env.PORT || 5020;
-//server up
-app.listen(port,()=>console.log(`Server Start At ${port} Port...`));
+
+const PORT = process.env.PORT || 5020;
+app.listen(PORT, () => console.log(`Server running @ ${PORT}`));
