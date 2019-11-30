@@ -11,15 +11,15 @@ const {
 const Consumer = require('../../models/Consumer');
 const User = require('../../models/User');
 
-// @route  GET api/profile/me
-// @desc   Get users profile
+// @route  GET api/consumers/consumeData
+// @desc   Get users consuming item data
 // @access Private
 router.get('/consumeData', auth, async (req, res) => {
 
     try {
         const consumer = await Consumer.findOne({
             user: req.user.id
-        }).populate('user','person', 'tap', 'shower');
+        }).populate('user','person', 'tap', 'shower','flush','washingMachine','dishWasher','filter');
 
         if (!consumer) {
             return res.status(400).json({
@@ -35,8 +35,8 @@ router.get('/consumeData', auth, async (req, res) => {
 
 });
 
-// @route  Post api/profile
-// @desc   Create or update user profile
+// @route  Post api/consumers
+// @desc   Create or update consuming item
 // @access Private
 
 router.post('/', [auth, [
@@ -71,15 +71,13 @@ router.post('/', [auth, [
     if (dishWasher) consumerFields.dishWasher = dishWasher;
     if (fridge) consumerFields.fridge = fridge;
 
-//console.log(profileFields.social);
-//res.send('ok');
      try {
          let consumer = await Consumer.findOne({
              user: req.user.id
           });
 
         if (consumer) {
-            //Updating Profile
+            //Updating Consuming item
             consumer= await Consumer.findOneAndUpdate({
                 user: req.user.id
             }, {
@@ -90,9 +88,8 @@ router.post('/', [auth, [
             return res.json(consumer);
         }
 
-        //Creting a Profile
+        //Creting a Consuming item
         consumer = new Consumer(consumerFields);
-      //  console.log(profile);
         await consumer.save();
         res.json(consumer);
 
