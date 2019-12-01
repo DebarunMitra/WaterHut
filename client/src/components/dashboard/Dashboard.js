@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import { getCurrentConsumer } from '../../actions/consumer';
 import DashboardActions from './DashboardActions';
+import ItemDetails from './ItemDetails';
 import Spinner from '../layout/Spinner';
 
 
@@ -19,6 +20,7 @@ const Dashboard = ({getCurrentConsumer, auth:{user}, consumer:{consumer,loading}
     {consumer.status !== 400?(
       <Fragment>
         <DashboardActions />
+        <ItemDetails />
       </Fragment>
     ):(
       <Fragment>
